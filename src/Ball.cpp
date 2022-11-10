@@ -15,12 +15,30 @@ void Ball::move(){
 
 }
 
-bool Ball::leftWindow(sf::RenderWindow& window){
-    if ((x <= boundaryLEFT) or (x >= boundaryRIGHT) or (y >= boundaryDOWN) or (y <= boundaryUP)){
+bool Ball::wallCollision(){
+    if (leftWallCollision() or rightWallCollision()
+    or bottomWallCollision() or upWallCollision())
+    {
         return true;
     }
     return false;
 }
+
+bool Ball::leftWallCollision(){
+    return x <= boundaryLEFT;
+}
+bool Ball::rightWallCollision() {
+    return x >= boundaryRIGHT;
+}
+
+bool Ball::upWallCollision() {
+    return y <= boundaryUP;
+}
+
+bool Ball::bottomWallCollision() {
+    return y >= boundaryDOWN;
+}
+
 
 
 void Ball::setX(float x) {

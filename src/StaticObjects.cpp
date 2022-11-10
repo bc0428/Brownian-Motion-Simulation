@@ -8,16 +8,30 @@
 #include "Constants.h"
 
 void drawStatic(sf::RenderWindow& window){
-    drawGround(window);
+    drawBorder(window);
 }
 
 
-void drawGround(sf::RenderWindow& window) {
-    sf::RectangleShape ground;
-    ground.setSize(sf::Vector2f(GROUND_WIDTH, GROUND_HEIGHT));
-    ground.setPosition(sf::Vector2f(GROUND_X, GROUND_Y));
-    ground.setFillColor(GROUND_COLOR);
+void drawBorder(sf::RenderWindow& window) {
+    sf::RectangleShape borderBottom;
+    borderBottom.setSize(sf::Vector2f(BORDER_LONG, BORDER_SHORT));
+    borderBottom.setPosition(sf::Vector2f(GROUND_X, GROUND_Y));
+    borderBottom.setFillColor(BORDER_COLOR);
 
-    window.draw(ground);
+
+    sf::RectangleShape borderLeft;
+    borderLeft.setSize(sf::Vector2f(BORDER_SHORT, BORDER_LONG));
+    borderLeft.setPosition(sf::Vector2f(0, 0));
+    borderLeft.setFillColor(BORDER_COLOR);
+
+
+    sf::RectangleShape borderRight;
+    borderRight.setSize(sf::Vector2f(BORDER_SHORT, BORDER_LONG));
+    borderRight.setPosition(sf::Vector2f(SCREEN_WIDTH - BORDER_SHORT, 0));
+    borderRight.setFillColor(BORDER_COLOR);
+
+    window.draw(borderBottom);
+    window.draw(borderLeft);
+    window.draw(borderRight);
 
 }

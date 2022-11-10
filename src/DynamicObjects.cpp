@@ -7,7 +7,7 @@
 #include "Constants.h"
 
 
-Ball b = {SCREEN_WIDTH/2,SCREEN_HEIGHT/2, BALL_RADIUS, velX_INITIAL, velY_INITIAL};
+Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIAL};
 Ball initial = b;
 
 void drawDynamic(sf::RenderWindow& window){
@@ -16,7 +16,7 @@ void drawDynamic(sf::RenderWindow& window){
 
     b.move();
     // my functionalities
-    if (b.leftWindow(window)){
+    if (b.wallCollision()){
         b = initial;
     }
 

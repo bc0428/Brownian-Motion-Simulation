@@ -20,7 +20,13 @@ typedef struct Ball {
     float getRadius();
 
     void move();
-    bool leftWindow(sf::RenderWindow& window);
+
+    bool wallCollision();
+    bool leftWallCollision();
+    bool rightWallCollision();
+    bool upWallCollision();
+    bool bottomWallCollision();
+
 } Ball;
 
 

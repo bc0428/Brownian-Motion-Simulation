@@ -6,9 +6,9 @@
 #define SIMULATION_STATICOBJECTS_H
 #include "SFMl/Graphics.hpp"
 
-//sf::Sprite drawGround();
+//sf::Sprite drawBorder();
 void drawStatic(sf::RenderWindow& window);
-void drawGround(sf::RenderWindow& window);
+void drawBorder(sf::RenderWindow& window);
 
 
 #endif //SIMULATION_STATICOBJECTS_H
