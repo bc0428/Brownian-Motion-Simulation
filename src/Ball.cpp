@@ -4,12 +4,24 @@
 
 
 #include "Ball.h"
+#include "SFML/Graphics.hpp"
+#include "Constants.h"
+
 struct Ball;
 
 void Ball::move(){
     x+= velX;
     y+= velY;
+
 }
+
+bool Ball::leftWindow(sf::RenderWindow& window){
+    if (x < boundaryLEFT or x > boundaryRIGHT or y > boundaryDOWN or y < boundaryUP){
+        return true;
+    }
+    return false;
+}
+
 
 void Ball::setX(float x) {
     Ball::x = x;

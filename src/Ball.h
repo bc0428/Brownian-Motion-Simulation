@@ -6,6 +6,8 @@
 #define SIMULATION_BALL_H
 
 
+#include <SFML/Graphics/RenderWindow.hpp>
+
 typedef struct Ball {
     float x, y, radius, velX, velY;
 
@@ -18,6 +20,7 @@ typedef struct Ball {
     float getRadius();
 
     void move();
+    bool leftWindow(sf::RenderWindow& window);
 } Ball;
 
 
