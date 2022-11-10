@@ -16,7 +16,7 @@ void Ball::move(){
 }
 
 bool Ball::leftWindow(sf::RenderWindow& window){
-    if (x < boundaryLEFT or x > boundaryRIGHT or y > boundaryDOWN or y < boundaryUP){
+    if ((x <= boundaryLEFT) or (x >= boundaryRIGHT) or (y >= boundaryDOWN) or (y <= boundaryUP)){
         return true;
     }
     return false;
