@@ -53,6 +53,20 @@ build CMakeFiles/Course_Scheduler.dir/src/main.cpp.o: CXX_COMPILER__Course_Sched
   OBJECT_DIR = CMakeFiles/Course_Scheduler.dir
   OBJECT_FILE_DIR = CMakeFiles/Course_Scheduler.dir/src
 
+build CMakeFiles/Course_Scheduler.dir/src/Updates.cpp.o: CXX_COMPILER__Course_Scheduler_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/Updates.cpp || cmake_object_order_depends_target_Course_Scheduler
+  DEP_FILE = CMakeFiles/Course_Scheduler.dir/src/Updates.cpp.o.d
+  FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
+  INCLUDES = -I/opt/homebrew/Cellar/sfml/2.5.1_2/include -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/Course_Scheduler.dir
+  OBJECT_FILE_DIR = CMakeFiles/Course_Scheduler.dir/src
+
+build CMakeFiles/Course_Scheduler.dir/src/Ball.cpp.o: CXX_COMPILER__Course_Scheduler_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/Ball.cpp || cmake_object_order_depends_target_Course_Scheduler
+  DEP_FILE = CMakeFiles/Course_Scheduler.dir/src/Ball.cpp.o.d
+  FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
+  INCLUDES = -I/opt/homebrew/Cellar/sfml/2.5.1_2/include -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/Course_Scheduler.dir
+  OBJECT_FILE_DIR = CMakeFiles/Course_Scheduler.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Course_Scheduler
@@ -61,7 +75,7 @@ build CMakeFiles/Course_Scheduler.dir/src/main.cpp.o: CXX_COMPILER__Course_Sched
 #############################################
 # Link the executable Course_Scheduler
 
-build Course_Scheduler: CXX_EXECUTABLE_LINKER__Course_Scheduler_Debug CMakeFiles/Course_Scheduler.dir/src/main.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-network.2.5.1.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib
+build Course_Scheduler: CXX_EXECUTABLE_LINKER__Course_Scheduler_Debug CMakeFiles/Course_Scheduler.dir/src/main.cpp.o CMakeFiles/Course_Scheduler.dir/src/Updates.cpp.o CMakeFiles/Course_Scheduler.dir/src/Ball.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-network.2.5.1.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib
   FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib  /opt/homebrew/lib/libsfml-audio.2.5.1.dylib  /opt/homebrew/lib/libsfml-network.2.5.1.dylib  /opt/homebrew/lib/libsfml-window.2.5.1.dylib  /opt/homebrew/lib/libsfml-system.2.5.1.dylib
   OBJECT_DIR = CMakeFiles/Course_Scheduler.dir

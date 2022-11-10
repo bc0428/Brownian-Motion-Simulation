@@ -3,7 +3,7 @@ project(Simulation) #
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES src/main.cpp ) #
+set(SOURCE_FILES src/main.cpp src/Updates.cpp src/Updates.h src/Ball.cpp src/Ball.h src/Constants.h) #
 add_executable(Course_Scheduler ${SOURCE_FILES}) #
 include_directories(/opt/homebrew/Cellar/sfml/2.5.1_2/include) #
 
