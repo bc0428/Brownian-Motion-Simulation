@@ -6,21 +6,35 @@
 #include "Ball.h"
 #include "SFML/Graphics.hpp"
 #include "Constants.h"
+#include "iostream"
 
 struct Ball;
 
 void Ball::move(){
-    x+= velX;
-    y+= velY;
+    // by trial and error find velocity threshold that doesn't bounce enough anymore, to reduce computation
+    if (abs(velY) > 0.04)
+    {
+        std::cout << "summation" <<std::endl;
+        velY += GRAVITY;
+        y += velY;
+    }
 
+    x+= velX;
 }
 
 void Ball::wallCollision(){
     if (leftWallCollision() or rightWallCollision()){
-        velX*=-1;
+        if (leftWallCollision()){
+            x = boundaryLEFT;
+        }
+        else if (rightWallCollision()){
+            x = boundaryRIGHT;
+        }
+        velX*=-COLLISION_DAMPENING;
     }
-    if(bottomWallCollision() or upWallCollision()){
-        velY*=-1;
+    if((bottomWallCollision() or upWallCollision())){
+        y = boundaryDOWN;
+        velY*=-COLLISION_DAMPENING;
     }
 }
 
@@ -61,4 +75,11 @@ float Ball::getY(){
 }
 float Ball::getRadius(){
     return radius;
+}
+
+void Ball::gravitation() {
+    if (y < boundaryDOWN){
+
+    }
+
 }

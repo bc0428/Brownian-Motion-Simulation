@@ -12,8 +12,8 @@ const float SCREEN_HEIGHT = 1500;
 //ball config
 const float BALL_RADIUS = 100;
 const sf::Color BALL_COLOR = sf::Color::White;
-const float velX_INITIAL = -10;
-const float velY_INITIAL = 0;
+const float velX_INITIAL = 20;
+const float velY_INITIAL = 10;
 const float BALL_DEFAULT_X = SCREEN_WIDTH/2 - BALL_RADIUS;
 const float BALL_DEFAULT_Y = SCREEN_HEIGHT/2 - BALL_RADIUS;
 
@@ -26,10 +26,14 @@ const float GROUND_Y = SCREEN_HEIGHT - BORDER_SHORT;
 const sf::Color BORDER_COLOR(100,100,100);
 
 //boundary config
-const float boundaryUP = BALL_RADIUS;
+const float boundaryUP = 0;
 const float boundaryDOWN = SCREEN_HEIGHT - 2 * BALL_RADIUS - BORDER_SHORT;
 const float boundaryLEFT = BORDER_SHORT;
 const float boundaryRIGHT = SCREEN_WIDTH - 2 * BALL_RADIUS - BORDER_SHORT;
+
+//physics config
+const float GRAVITY = 9.81 * 0.1;
+const float COLLISION_DAMPENING =0.6;
 
 
 const Ball BALL_DEFAULT = {SCREEN_WIDTH/2,SCREEN_HEIGHT/2, BALL_RADIUS, velX_INITIAL, velY_INITIAL};

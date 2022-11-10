@@ -8,7 +8,7 @@
 
 
 Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIAL};
-Ball initial = b;
+
 
 void drawDynamic(sf::RenderWindow& window){
 

@@ -19,6 +19,7 @@ typedef struct Ball {
     float getY();
     float getRadius();
 
+    void gravitation();
     void move();
 
     void wallCollision();
