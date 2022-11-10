@@ -16,9 +16,7 @@ void drawDynamic(sf::RenderWindow& window){
 
     b.move();
     // my functionalities
-    if (b.wallCollision()){
-        b = initial;
-    }
+    b.wallCollision();
 
 
 

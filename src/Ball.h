@@ -21,7 +21,7 @@ typedef struct Ball {
 
     void move();
 
-    bool wallCollision();
+    void wallCollision();
     bool leftWallCollision();
     bool rightWallCollision();
     bool upWallCollision();

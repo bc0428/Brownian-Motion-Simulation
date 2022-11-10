@@ -15,13 +15,13 @@ void Ball::move(){
 
 }
 
-bool Ball::wallCollision(){
-    if (leftWallCollision() or rightWallCollision()
-    or bottomWallCollision() or upWallCollision())
-    {
-        return true;
+void Ball::wallCollision(){
+    if (leftWallCollision() or rightWallCollision()){
+        velX*=-1;
     }
-    return false;
+    if(bottomWallCollision() or upWallCollision()){
+        velY*=-1;
+    }
 }
 
 bool Ball::leftWallCollision(){
