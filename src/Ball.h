@@ -7,10 +7,14 @@
 
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "Constants.h"
 
 typedef struct Ball {
     float x, y, radius, velX, velY;
     sf::Color ball_color;
+    float mass;
+
+    int quadrantX, quadrantY;
 
     void gravitation();
     void move();
@@ -24,7 +28,12 @@ typedef struct Ball {
     void frictionVertical();
     void frictionHorizontal();
 
+
+    bool operator==(const Ball& other);
+    bool operator !=(const Ball& other);
 } Ball;
+
+
 
 
 #endif //SIMULATION_BALL_H

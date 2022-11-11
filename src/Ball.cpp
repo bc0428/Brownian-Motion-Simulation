@@ -15,7 +15,7 @@ void Ball::move(){
     //apply gravity
     gravitation();
 
-//    std::cout << "velX: " << velX << ", velY: " << velY << std::endl;
+
 
 // stop the ball when no sufficient horizontal movement
     if (abs(velX) > 0.01){
@@ -23,6 +23,11 @@ void Ball::move(){
     }else{
         velX = 0;
     }
+
+//    update quadrant information
+    quadrantX = (x-boundaryUP) / QUADRANT_WIDTH;
+    quadrantY = (y-boundaryLEFT) / QUADRANT_WIDTH;
+        std::cout << x <<" QX: " << quadrantX << ", QY: " << quadrantY << std::endl;
 
 }
 
@@ -81,4 +86,14 @@ void Ball::frictionVertical() {
 
 void Ball::frictionHorizontal() {
     velX > 0? velX -= FRICTION_COEFFICIENT: velX += FRICTION_COEFFICIENT;
+}
+
+bool Ball::operator==(const Ball &other) {
+    return x == other.x and y == other.y and
+           velX == other.velX and velY == other.velY;
+}
+
+bool Ball::operator!=(const Ball &other) {
+    return x != other.x or y != other.y or
+           velX != other.velX or velY != other.velY;
 }
