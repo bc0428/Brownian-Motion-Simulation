@@ -11,30 +11,41 @@
 struct Ball;
 
 void Ball::move(){
-    // by trial and error find velocity threshold that doesn't bounce enough anymore, to reduce computation
-    if (abs(velY) > 0.04)
-    {
-        std::cout << "summation" <<std::endl;
-        velY += GRAVITY;
-        y += velY;
+
+    //apply gravity
+    gravitation();
+
+//    std::cout << "velX: " << velX << ", velY: " << velY << std::endl;
+
+// stop the ball when no sufficient horizontal movement
+    if (abs(velX) > 0.01){
+        x+= velX;
+    }else{
+        velX = 0;
     }
 
-    x+= velX;
 }
 
 void Ball::wallCollision(){
     if (leftWallCollision() or rightWallCollision()){
-        if (leftWallCollision()){
-            x = boundaryLEFT;
-        }
-        else if (rightWallCollision()){
-            x = boundaryRIGHT;
-        }
+        //apply friction
+        frictionVertical();
+
+        leftWallCollision()? x = boundaryLEFT : x = boundaryRIGHT;
         velX*=-COLLISION_DAMPENING;
+
     }
     if((bottomWallCollision() or upWallCollision())){
-        y = boundaryDOWN;
+        //reduce computation when no sufficient movement to prevent fluctuation in horizontal movement
+        if (velX >0.01)
+        {
+            frictionHorizontal();
+        }
+
+        // reset position to improve stability after collision
+        bottomWallCollision() ? y = boundaryDOWN : y = boundaryUP;
         velY*=-COLLISION_DAMPENING;
+
     }
 }
 
@@ -78,8 +89,19 @@ float Ball::getRadius(){
 }
 
 void Ball::gravitation() {
-    if (y < boundaryDOWN){
-
+    //apply gravitation only when ball not at bottom and with sufficient velocity
+    if (!(y == boundaryDOWN and abs(velY) < BOUNCE_STOPPING_VELOCITY))
+    {
+        velY += GRAVITY;
+        y += velY;
     }
+}
 
+
+void Ball::frictionVertical() {
+    velY > 0? velY -= FRICTION_COEFFICIENT: velY += FRICTION_COEFFICIENT;
+}
+
+void Ball::frictionHorizontal() {
+    velX > 0? velX -= FRICTION_COEFFICIENT: velX += FRICTION_COEFFICIENT;
 }

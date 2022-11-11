@@ -9,7 +9,7 @@ int main()
 {
 //    mode, window title name, style(what functions to include in title bar)
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH,SCREEN_HEIGHT), "Window", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(FPS);
 
 
 

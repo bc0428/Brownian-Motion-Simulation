@@ -28,6 +28,9 @@ typedef struct Ball {
     bool upWallCollision();
     bool bottomWallCollision();
 
+    void frictionVertical();
+    void frictionHorizontal();
+
 } Ball;
 
 
