@@ -11,7 +11,7 @@ Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIA
 Ball r = {boundaryLEFT, boundaryUP, BALL_RADIUS, velX_INITIAL, velY_INITIAL, sf::Color::Red, BALL_MASS};
 Ball bl = {boundaryRIGHT, boundaryDOWN, BALL_RADIUS, -velX_INITIAL, -velY_INITIAL, sf::Color::Blue,BALL_MASS};
 
-std::vector<Ball> balls = {r};
+std::vector<Ball> balls = {b,r ,bl};
 
 
 void drawDynamic(sf::RenderWindow& window){
@@ -34,6 +34,7 @@ void drawBall(sf::RenderWindow& window){
     for (Ball a : balls){
     sf::CircleShape drawableBall;
     drawableBall.setRadius(a.radius);
+    drawableBall.setOrigin(a.radius, a.radius);
     drawableBall.setPosition(a.x, a.y);
     drawableBall.setFillColor(a.ball_color);
     window.draw(drawableBall);
@@ -54,7 +55,7 @@ void ballCollision(Ball& b){
         if (b != other and b.quadrantX==other.quadrantX and b.quadrantY==other.quadrantY){
             float dx = abs(b.x - other.x);
             float dy = abs(b.y - other.y);
-            if (dy*dy + dx*dx <= 4*b.radius*b.radius){
+            if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)){
 
                 //velocity update of ball 1 (b)
                 b.velX = afterCollisionVel1(b.mass, other.mass, b.velX, other.velX);
