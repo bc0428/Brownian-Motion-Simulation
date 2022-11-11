@@ -27,8 +27,8 @@ void Ball::move(){
 //    update quadrant information
     quadrantX = (x-boundaryUP) / QUADRANT_WIDTH;
     quadrantY = (y-boundaryLEFT) / QUADRANT_WIDTH;
-        std::cout << x <<" QX: " << quadrantX << ", QY: " << quadrantY << std::endl;
-
+//        std::cout << x <<" QX: " << quadrantX << ", QY: " << quadrantY << std::endl;
+    std::cout << x <<" VelX: " << velX << ", VelY: " << velY << std::endl;
 }
 
 void Ball::wallCollision(){
@@ -42,7 +42,7 @@ void Ball::wallCollision(){
     }
     if((bottomWallCollision() or upWallCollision())){
         //reduce computation when no sufficient movement to prevent fluctuation in horizontal movement
-        if (velX >0.01)
+        if (abs(velX) >0.01)
         {
             frictionHorizontal();
         }

@@ -8,7 +8,7 @@
 //screen config
 const float SCREEN_WIDTH = 1500;
 const float SCREEN_HEIGHT = 1500;
-const float FPS = 60;
+const float FPS = 10;
 
 //ball config
 const float BALL_RADIUS = 30;
