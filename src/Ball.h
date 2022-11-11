@@ -10,14 +10,7 @@
 
 typedef struct Ball {
     float x, y, radius, velX, velY;
-
-    void setX(float x);
-    void setY(float y);
-    void setRadius(float radius);
-
-    float getX();
-    float getY();
-    float getRadius();
+    sf::Color ball_color;
 
     void gravitation();
     void move();

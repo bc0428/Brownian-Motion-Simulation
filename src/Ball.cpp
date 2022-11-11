@@ -65,29 +65,6 @@ bool Ball::bottomWallCollision() {
 }
 
 
-
-void Ball::setX(float x) {
-    Ball::x = x;
-}
-
-void Ball::setY(float y) {
-    Ball::y = y;
-}
-
-void Ball::setRadius(float radius) {
-    Ball::radius = radius;
-}
-
-float Ball::getX(){
-    return x;
-}
-float Ball::getY(){
-    return y;
-}
-float Ball::getRadius(){
-    return radius;
-}
-
 void Ball::gravitation() {
     //apply gravitation only when ball not at bottom and with sufficient velocity
     if (!(y == boundaryDOWN and abs(velY) < BOUNCE_STOPPING_VELOCITY))
