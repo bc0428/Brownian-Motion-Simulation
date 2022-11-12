@@ -1,2 +1,1 @@
-1. using quadrants delay detection of collision
-2. balls at edge need to act as wall extension for rebound
+1. solution when balls stack together

@@ -7,12 +7,22 @@
 #include "Constants.h"
 #include "iostream"
 
-Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIAL, BALL_COLOR, BALL_MASS};
-Ball r = {boundaryLEFT, boundaryDOWN, BALL_RADIUS, velX_INITIAL, 0, sf::Color::Red, BALL_MASS};
-Ball bl = {boundaryRIGHT/2, boundaryDOWN, BALL_RADIUS, 0, 20, sf::Color::Blue,BALL_MASS};
+//Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIAL, BALL_COLOR, BALL_MASS};
+//Ball r = {boundaryLEFT, boundaryDOWN, BALL_RADIUS, velX_INITIAL, 0, sf::Color::Red, BALL_MASS};
+//Ball bl = {boundaryRIGHT/2, boundaryDOWN, BALL_RADIUS, 0, 20, sf::Color::Blue,BALL_MASS};
 
-std::vector<Ball> balls = {};
+//Ball one = {BALL_DEFAULT_X, boundaryDOWN, BALL_RADIUS, 0, 0, BALL_COLOR, BALL_MASS};
+//Ball two = {BALL_DEFAULT_X+2*BALL_RADIUS, boundaryDOWN, BALL_RADIUS, 0, velY_INITIAL, BALL_COLOR, BALL_MASS};
+//Ball three = {BALL_DEFAULT_X-2*BALL_RADIUS,boundaryDOWN, BALL_RADIUS, 0, velY_INITIAL, BALL_COLOR, BALL_MASS};
+//Ball four = {BALL_DEFAULT_X-4*BALL_RADIUS, boundaryDOWN, BALL_RADIUS, 0, velY_INITIAL, BALL_COLOR, BALL_MASS};
+//Ball five = {BALL_DEFAULT_X+5*BALL_RADIUS, boundaryDOWN, BALL_RADIUS, velX_INITIAL, velY_INITIAL, BALL_COLOR, BALL_MASS};
+//std::vector<Ball> balls = {one,two,three,four,five};
 
+Ball down = {BALL_DEFAULT_X, boundaryDOWN/2, BALL_RADIUS, 0, velY_INITIAL, sf::Color::Red, BALL_MASS};
+Ball up = {BALL_DEFAULT_X-BALL_RADIUS/2, boundaryDOWN, BALL_RADIUS, 0, 0, BALL_COLOR, BALL_MASS};
+std::vector<Ball> balls = {up, down};
+
+//std::vector<Ball> balls = {};
 void addBalls(Ball& b){
     balls.push_back(b);
 }
@@ -57,14 +67,14 @@ void ballCollision(Ball& b){
     for (Ball& other : balls){
         //in same quadrant
         if (b != other){
-            float dx = abs(b.x - other.x);
-            float dy = abs(b.y - other.y);
+            float dx = other.x - b.x;
+            float dy = other.y - b.y;
 
-            if(dx< DETECTION_LENGTH and dy < DETECTION_LENGTH){
+            if(abs(dx)< DETECTION_LENGTH and abs(dy) < DETECTION_LENGTH){
 
 //                std::cout<< "X: " << other.x << " Y: " << b.x << std::endl;
 
-                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)+5){ //small offset to prevent late collision
+                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)+1000){ //small offset to prevent late collision
                     std::cout << "COLLISION!!!"<<std::endl;
 
                     //velocity update of ball 1 (b)

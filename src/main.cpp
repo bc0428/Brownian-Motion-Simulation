@@ -35,7 +35,7 @@ int main()
                     y<boundaryUP ? y = boundaryUP: y;
                     y>boundaryDOWN ? x = boundaryDOWN: y;
 
-                    Ball b = {x,y,BALL_RADIUS, 0,
+                    Ball b = {x,y,BALL_RADIUS, velX_INITIAL,
                               velY_INITIAL, BALL_COLOR, BALL_MASS};
                     addBalls(b);
 

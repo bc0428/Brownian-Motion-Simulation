@@ -36,8 +36,6 @@ void Ball::wallCollision(){
 
         leftWallCollision()? x = boundaryLEFT : x = boundaryRIGHT;
         velX*=-COLLISION_DAMPENING;
-
-
     }
     if((bottomWallCollision() or upWallCollision())){
         //reduce computation when no sufficient movement to prevent fluctuation in horizontal movement
