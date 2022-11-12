@@ -25,6 +25,19 @@ int main()
                 case sf::Event::Closed:
                     window.close();
                     break;
+                case sf::Event::MouseButtonPressed:
+                    sf::Vector2i pos = sf::Mouse::getPosition(window);
+                    float x = static_cast<float>(pos.x);
+                    float y = static_cast<float>(pos.y);
+
+                    x<boundaryLEFT ? x = boundaryLEFT: x;
+                    x>boundaryRIGHT ? x = boundaryRIGHT: x;
+                    y<boundaryUP ? y = boundaryUP: y;
+                    y>boundaryDOWN ? x = boundaryDOWN: y;
+
+                    Ball b = {x,y,BALL_RADIUS, 0,
+                              velY_INITIAL, BALL_COLOR, BALL_MASS};
+                    addBalls(b);
 
 ////         take text input
 //                case sf::Event::TextEntered:

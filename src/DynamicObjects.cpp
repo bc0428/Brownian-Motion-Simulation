@@ -11,8 +11,11 @@ Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIA
 Ball r = {boundaryLEFT, boundaryDOWN, BALL_RADIUS, velX_INITIAL, 0, sf::Color::Red, BALL_MASS};
 Ball bl = {boundaryRIGHT/2, boundaryDOWN, BALL_RADIUS, 0, 20, sf::Color::Blue,BALL_MASS};
 
-std::vector<Ball> balls = {r,bl,b};
+std::vector<Ball> balls = {};
 
+void addBalls(Ball& b){
+    balls.push_back(b);
+}
 
 void drawDynamic(sf::RenderWindow& window){
     drawBall(window);

@@ -34,7 +34,7 @@ const float boundaryLEFT = BORDER_SHORT + BALL_RADIUS;
 const float boundaryRIGHT = SCREEN_WIDTH - BALL_RADIUS - BORDER_SHORT;
 
 //collision detection area (nearest neighbor)
-const float DETECTION_LENGTH = BALL_RADIUS * 2 * 3 ;
+const float DETECTION_LENGTH = BALL_RADIUS * 2 * 2 ;
 
 
 //physics config
