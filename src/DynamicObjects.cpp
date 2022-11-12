@@ -1,6 +1,7 @@
 //
 // Created by Brian Cheng on 9/11/2022.
 //
+#include <cmath>
 #include "DynamicObjects.h"
 #include "SFML/Graphics.hpp"
 #include "Ball.h"
@@ -74,19 +75,40 @@ void ballCollision(Ball& b){
 
 //                std::cout<< "X: " << other.x << " Y: " << b.x << std::endl;
 
-                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)+1000){ //small offset to prevent late collision
-                    std::cout << "COLLISION!!!"<<std::endl;
+                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)){ //small offset to prevent late collision
+//                    std::cout << "COLLISION!!!"<<std::endl;
 
-                    //velocity update of ball 1 (b)
-                     float tempX = afterCollisionVel1(b.mass, other.mass, b.velX, other.velX);
-                     float tempY = afterCollisionVel1(b.mass, other.mass, b.velY, other.velY);
+                    float theta = atan(dx / dy);
 
-                    //velocity update of ball 2 (other)
-                    other.velX = afterCollisionVel2(b.mass, other.mass, b.velX, other.velX);
-                    other.velY = afterCollisionVel2(b.mass, other.mass, b.velY, other.velY);
+//                    linear transformation the collision plane
+                    float b_vy = b.velX* sin(theta) + b.velY * cos(theta);
+                    float other_vy = other.velX* sin(theta) + other.velY * cos(theta);
+                    float b_vx = b.velX * cos(theta) - b.velY * sin(theta);
+                    float other_vx = other.velX * cos(theta) - other.velY * sin(theta);;
 
-                    b.velX = tempX;
-                    b.velY = tempY;
+                    // new velocity update, change in perpendicular direction only
+                    float tempY = afterCollisionVel1(b.mass, other.mass, b_vy, other_vy);
+                    other_vy = afterCollisionVel2(b.mass, other.mass, b_vy, other_vy);
+                    b_vy = tempY;
+
+                    //reverse back to original plane
+                    b.velX = b_vx * cos(theta) + b_vy * sin(theta);
+                    b.velY = -b_vx * sin(theta) + b_vy * cos(theta);
+                    other.velX = other_vx * cos(theta) + other_vy * sin(theta);
+                    other.velY = -other_vx * sin(theta) + other_vy * cos(theta);
+
+
+
+//                    //velocity update of ball 1 (b)
+//                     float tempX = afterCollisionVel1(b.mass, other.mass, b.velX, other.velX);
+//                     float tempY = afterCollisionVel1(b.mass, other.mass, b.velY, other.velY);
+//
+//                    //velocity update of ball 2 (other)
+//                    other.velX = afterCollisionVel2(b.mass, other.mass, b.velX, other.velX);
+//                    other.velY = afterCollisionVel2(b.mass, other.mass, b.velY, other.velY);
+//
+//                    b.velX = tempX;
+//                    b.velY = tempY;
                 }
             }
         }

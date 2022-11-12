@@ -8,12 +8,12 @@
 //screen config
 const float SCREEN_WIDTH = 1500;
 const float SCREEN_HEIGHT = 1500;
-const float FPS = 10;
+const float FPS = 6000;
 
 //ball config
 const float BALL_RADIUS = 20;
 const sf::Color BALL_COLOR = sf::Color::White;
-const float velX_INITIAL = 20;
+const float velX_INITIAL = 0.2;
 const float velY_INITIAL = 0;
 const float BALL_DEFAULT_X = SCREEN_WIDTH/2 ;
 const float BALL_DEFAULT_Y = SCREEN_HEIGHT/2 ;
@@ -38,7 +38,7 @@ const float DETECTION_LENGTH = BALL_RADIUS * 2 * 2 ;
 
 
 //physics config
-const float GRAVITY = 9.81 * 0.1;
+const float GRAVITY = 9.81 * 0.0001;
 const float COLLISION_DAMPENING =0.9;
 const float BOUNCE_STOPPING_VELOCITY= 0.504; // by trial and error find velocity threshold that doesn't bounce enough anymore, to reduce computation
 const float FRICTION_COEFFICIENT = 0.01; // absolute value to be subtracted from velocity
