@@ -38,11 +38,6 @@ void Ball::wallCollision(){
         velX*=-COLLISION_DAMPENING;
 
 
-        // located at lower corners, setting mass to infinity to act as wall extension
-        if (velY == 0 and velX == 0){
-            mass = std::numeric_limits<float>::max();
-        }
-
     }
     if((bottomWallCollision() or upWallCollision())){
         //reduce computation when no sufficient movement to prevent fluctuation in horizontal movement
@@ -81,6 +76,10 @@ void Ball::gravitation() {
         velY += GRAVITY;
         y += velY;
     }
+    else{
+        velY=0;
+    }
+
 }
 
 

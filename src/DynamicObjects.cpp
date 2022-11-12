@@ -9,9 +9,9 @@
 
 Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIAL, BALL_COLOR, BALL_MASS};
 Ball r = {boundaryLEFT, boundaryDOWN, BALL_RADIUS, velX_INITIAL, 0, sf::Color::Red, BALL_MASS};
-Ball bl = {boundaryRIGHT, boundaryDOWN, BALL_RADIUS, -velX_INITIAL, 0, sf::Color::Blue,BALL_MASS};
+Ball bl = {boundaryRIGHT/2, boundaryDOWN, BALL_RADIUS, 0, 20, sf::Color::Blue,BALL_MASS};
 
-std::vector<Ball> balls = {r,bl};
+std::vector<Ball> balls = {r,bl,b};
 
 
 void drawDynamic(sf::RenderWindow& window){
@@ -61,7 +61,7 @@ void ballCollision(Ball& b){
 
 //                std::cout<< "X: " << other.x << " Y: " << b.x << std::endl;
 
-                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)){
+                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)+5){ //small offset to prevent late collision
                     std::cout << "COLLISION!!!"<<std::endl;
 
                     //velocity update of ball 1 (b)
