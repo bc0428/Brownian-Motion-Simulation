@@ -25,8 +25,8 @@ void Ball::move(){
     }
 
 
-//    std::cout << x <<" VelX: " << velX << ", VelY: " << velY << std::endl;
-    std::cout <<"X: " << x << ", Y: " << y << std::endl;
+    std::cout << x <<" VelX: " << velX << ", VelY: " << velY << std::endl;
+//    std::cout <<"X: " << x << ", Y: " << y << std::endl;
 }
 
 void Ball::wallCollision(){

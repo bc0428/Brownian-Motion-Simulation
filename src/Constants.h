@@ -8,7 +8,7 @@
 //screen config
 const float SCREEN_WIDTH = 1500;
 const float SCREEN_HEIGHT = 1500;
-const float FPS = 60;
+const float FPS = 15;
 
 //ball config
 const float BALL_RADIUS = 30;
@@ -33,8 +33,7 @@ const float boundaryDOWN = SCREEN_HEIGHT - BALL_RADIUS - BORDER_SHORT;
 const float boundaryLEFT = BORDER_SHORT + BALL_RADIUS;
 const float boundaryRIGHT = SCREEN_WIDTH - BALL_RADIUS - BORDER_SHORT;
 
-//moving area config (quadrants for collision detection)
-const int QUADRANT_WIDTH = BALL_RADIUS * 2 * 3 ;
+//collision detection area (nearest neighbor)
 const float DETECTION_LENGTH = BALL_RADIUS * 2 * 3 ;
 
 
