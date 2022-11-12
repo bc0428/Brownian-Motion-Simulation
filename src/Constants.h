@@ -13,8 +13,8 @@ const float FPS = 60;
 //ball config
 const float BALL_RADIUS = 30;
 const sf::Color BALL_COLOR = sf::Color::White;
-const float velX_INITIAL = 20;
-const float velY_INITIAL = 20;
+const float velX_INITIAL = 10;
+const float velY_INITIAL = 10;
 const float BALL_DEFAULT_X = SCREEN_WIDTH/2 ;
 const float BALL_DEFAULT_Y = SCREEN_HEIGHT/2 ;
 const float BALL_MASS =1;
@@ -35,6 +35,8 @@ const float boundaryRIGHT = SCREEN_WIDTH - BALL_RADIUS - BORDER_SHORT;
 
 //moving area config (quadrants for collision detection)
 const int QUADRANT_WIDTH = BALL_RADIUS * 2 * 3 ;
+const float DETECTION_LENGTH = BALL_RADIUS * 2 * 3 ;
+
 
 //physics config
 const float GRAVITY = 9.81 * 0.1;

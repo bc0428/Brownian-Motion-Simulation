@@ -11,7 +11,7 @@ Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIA
 Ball r = {boundaryLEFT, boundaryDOWN, BALL_RADIUS, velX_INITIAL, 0, sf::Color::Red, BALL_MASS};
 Ball bl = {boundaryRIGHT, boundaryDOWN, BALL_RADIUS, -velX_INITIAL, 0, sf::Color::Blue,BALL_MASS};
 
-std::vector<Ball> balls = {r ,bl, b};
+std::vector<Ball> balls = {r,bl ,b};
 
 
 void drawDynamic(sf::RenderWindow& window){
@@ -53,19 +53,25 @@ float afterCollisionVel2(float m1, float m2, float u1, float u2){
 void ballCollision(Ball& b){
     for (Ball& other : balls){
         //in same quadrant
-        if (b != other and b.quadrantX==other.quadrantX and b.quadrantY==other.quadrantY){
-//        if (b != other){
-            float dx = abs(b.x - other.x);
-            float dy = abs(b.y - other.y);
-            if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)){
+        if (b != other){
 
-                //velocity update of ball 1 (b)
-                b.velX = afterCollisionVel1(b.mass, other.mass, b.velX, other.velX);
-                b.velY = afterCollisionVel1(b.mass, other.mass, b.velY, other.velY);
+            if(abs(other.x - b.x) < DETECTION_LENGTH and
+            abs(other.y - b.y) < DETECTION_LENGTH){
 
-                //velocity update of ball 2 (other)
-                other.velX = afterCollisionVel2(b.mass, other.mass, b.velX, other.velX);
-                other.velY = afterCollisionVel2(b.mass, other.mass, b.velY, other.velY);
+//                std::cout<< "X: " << other.x << " Y: " << b.x << std::endl;
+
+                float dx = abs(b.x - other.x);
+                float dy = abs(b.y - other.y);
+                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)){
+                    std::cout << "COLLISION!!!"<<std::endl;
+                    //velocity update of ball 1 (b)
+                    b.velX = afterCollisionVel1(b.mass, other.mass, b.velX, other.velX);
+                    b.velY = afterCollisionVel1(b.mass, other.mass, b.velY, other.velY);
+
+                    //velocity update of ball 2 (other)
+                    other.velX = afterCollisionVel2(b.mass, other.mass, b.velX, other.velX);
+                    other.velY = afterCollisionVel2(b.mass, other.mass, b.velY, other.velY);
+                }
             }
         }
     }

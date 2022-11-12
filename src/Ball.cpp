@@ -24,11 +24,9 @@ void Ball::move(){
         velX = 0;
     }
 
-//    update quadrant information
-    quadrantX = (x-boundaryUP) / QUADRANT_WIDTH;
-    quadrantY = (y-boundaryLEFT) / QUADRANT_WIDTH;
-//        std::cout << x <<" QX: " << quadrantX << ", QY: " << quadrantY << std::endl;
-    std::cout << x <<" VelX: " << velX << ", VelY: " << velY << std::endl;
+
+//    std::cout << x <<" VelX: " << velX << ", VelY: " << velY << std::endl;
+    std::cout <<"X: " << x << ", Y: " << y << std::endl;
 }
 
 void Ball::wallCollision(){

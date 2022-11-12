@@ -14,8 +14,6 @@ typedef struct Ball {
     sf::Color ball_color;
     float mass;
 
-    int quadrantX, quadrantY;
-
     void gravitation();
     void move();
 
