@@ -10,7 +10,8 @@
 void drawDynamic(sf::RenderWindow &window);
 void drawBall(sf::RenderWindow& window);
 
-void ballCollision(Ball& b);
+void updateVelocity(Ball& b, Ball& other, float dx,float dy);
+void checkCollision(Ball& b);
 float afterCollisionVel1(float m1, float m2, float u1, float u2);
 float afterCollisionVel2(float m1, float m2, float u1, float u2);
 

@@ -7,14 +7,27 @@
 #include "SFML/Graphics.hpp"
 #include "Constants.h"
 #include "iostream"
+#include "DynamicObjects.h"
 
-struct Ball;
+Ball::Ball(float x,float y,float radius,float velX,float velY, sf::Color ball_color, float mass){
+     this->x = x;
+     this->y = y;
+     this->radius = radius;
+     this->velX = velX;
+     this->velY = velY;
+     this->ball_color = ball_color;
+     this->mass = mass;
 
+}
+bool Ball::resting(){
+    return(bottomWallCollision() or this->balls_collision) and abs(velY) < MIN_VELOCITY_UPDATE;
+}
 void Ball::move(){
 
-    //apply gravity
-    gravitation();
-
+        if (!resting())
+        {
+            gravitation();
+        }
 
 
 // stop the ball when no sufficient horizontal movement

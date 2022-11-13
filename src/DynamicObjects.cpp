@@ -20,7 +20,7 @@
 //std::vector<Ball> balls = {one,two,three,four,five};
 
 Ball down = {BALL_DEFAULT_X, boundaryDOWN/2, BALL_RADIUS, 0, velY_INITIAL, sf::Color::Red, BALL_MASS};
-Ball up = {BALL_DEFAULT_X-BALL_RADIUS/2, boundaryDOWN, BALL_RADIUS, 0, 0, BALL_COLOR, BALL_MASS};
+Ball up = {BALL_DEFAULT_X, boundaryDOWN, BALL_RADIUS, 0, 0, BALL_COLOR, BALL_MASS};
 std::vector<Ball> balls = {up, down};
 
 //std::vector<Ball> balls = {};
@@ -35,8 +35,7 @@ void drawDynamic(sf::RenderWindow& window){
     for (Ball& i : balls){
         i.move();
         i.wallCollision();
-        ballCollision(i);
-
+        checkCollision(i);
     }
     std::cout<<'\n';
 
@@ -64,55 +63,49 @@ float afterCollisionVel2(float m1, float m2, float u1, float u2){
     return (2*m1*u1 + u2*(m2-m1)) / (m1+m2);
 }
 
-void ballCollision(Ball& b){
+void checkCollision(Ball& b){
+    b.balls_collision = false;
+
     for (Ball& other : balls){
-        //in same quadrant
         if (b != other){
             float dx = other.x - b.x;
             float dy = other.y - b.y;
 
             if(abs(dx)< DETECTION_LENGTH and abs(dy) < DETECTION_LENGTH){
-
 //                std::cout<< "X: " << other.x << " Y: " << b.x << std::endl;
 
-                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)){ //small offset to prevent late collision
+                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)){
 //                    std::cout << "COLLISION!!!"<<std::endl;
 
-                    float theta = atan(dx / dy);
+                    b.balls_collision = true;
+                    updateVelocity(b,other,dx,dy);
 
-//                    linear transformation the collision plane
-                    float b_vy = b.velX* sin(theta) + b.velY * cos(theta);
-                    float other_vy = other.velX* sin(theta) + other.velY * cos(theta);
-                    float b_vx = b.velX * cos(theta) - b.velY * sin(theta);
-                    float other_vx = other.velX * cos(theta) - other.velY * sin(theta);;
-
-                    // new velocity update, change in perpendicular direction only
-                    float tempY = afterCollisionVel1(b.mass, other.mass, b_vy, other_vy);
-                    other_vy = afterCollisionVel2(b.mass, other.mass, b_vy, other_vy);
-                    b_vy = tempY;
-
-                    //reverse back to original plane
-                    b.velX = b_vx * cos(theta) + b_vy * sin(theta);
-                    b.velY = -b_vx * sin(theta) + b_vy * cos(theta);
-                    other.velX = other_vx * cos(theta) + other_vy * sin(theta);
-                    other.velY = -other_vx * sin(theta) + other_vy * cos(theta);
-
-
-
-//                    //velocity update of ball 1 (b)
-//                     float tempX = afterCollisionVel1(b.mass, other.mass, b.velX, other.velX);
-//                     float tempY = afterCollisionVel1(b.mass, other.mass, b.velY, other.velY);
-//
-//                    //velocity update of ball 2 (other)
-//                    other.velX = afterCollisionVel2(b.mass, other.mass, b.velX, other.velX);
-//                    other.velY = afterCollisionVel2(b.mass, other.mass, b.velY, other.velY);
-//
-//                    b.velX = tempX;
-//                    b.velY = tempY;
                 }
             }
         }
     }
+}
+
+void updateVelocity(Ball &b, Ball& other, float dx, float dy) {
+    float theta = atan(dx / dy);
+
+//                    linear transformation to the collision plane
+    float b_vy = b.velX* sin(theta) + b.velY * cos(theta);
+    float other_vy = other.velX* sin(theta) + other.velY * cos(theta);
+    float b_vx = b.velX * cos(theta) - b.velY * sin(theta);
+    float other_vx = other.velX * cos(theta) - other.velY * sin(theta);;
+
+    // new velocity update, change in perpendicular direction only
+    float tempY = afterCollisionVel1(b.mass, other.mass, b_vy, other_vy);
+    other_vy = afterCollisionVel2(b.mass, other.mass, b_vy, other_vy);
+    b_vy = tempY;
+
+    //reverse back to original plane
+    b.velX = b_vx * cos(theta) + b_vy * sin(theta);
+    b.velY = -b_vx * sin(theta) + b_vy * cos(theta);
+    other.velX = other_vx * cos(theta) + other_vy * sin(theta);
+    other.velY = -other_vx * sin(theta) + other_vy * cos(theta);
+
 }
 
 
