@@ -16,8 +16,6 @@ typedef struct Ball {
 
     Ball(float x,float y,float radius,float velX,float velY, sf::Color ball_color, float mass);
 
-    bool resting();
-    void gravitation();
     void move();
 
     void wallCollision();
@@ -33,10 +31,6 @@ typedef struct Ball {
     bool operator==(const Ball& other);
     bool operator !=(const Ball& other);
 
-    bool balls_collision;
-private:
-    float last_VelX;
-    float last_VelY;
 
 } Ball;
 

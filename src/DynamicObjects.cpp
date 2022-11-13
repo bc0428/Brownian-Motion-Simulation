@@ -6,24 +6,12 @@
 #include "SFML/Graphics.hpp"
 #include "Ball.h"
 #include "Constants.h"
-#include "iostream"
 
-//Ball b = {BALL_DEFAULT_X, BALL_DEFAULT_Y, BALL_RADIUS, velX_INITIAL, velY_INITIAL, BALL_COLOR, BALL_MASS};
-//Ball r = {boundaryLEFT, boundaryDOWN, BALL_RADIUS, velX_INITIAL, 0, sf::Color::Red, BALL_MASS};
-//Ball bl = {boundaryRIGHT/2, boundaryDOWN, BALL_RADIUS, 0, 20, sf::Color::Blue,BALL_MASS};
 
-//Ball one = {BALL_DEFAULT_X, boundaryDOWN, BALL_RADIUS, 0, 0, BALL_COLOR, BALL_MASS};
-//Ball two = {BALL_DEFAULT_X+2*BALL_RADIUS, boundaryDOWN, BALL_RADIUS, 0, velY_INITIAL, BALL_COLOR, BALL_MASS};
-//Ball three = {BALL_DEFAULT_X-2*BALL_RADIUS,boundaryDOWN, BALL_RADIUS, 0, velY_INITIAL, BALL_COLOR, BALL_MASS};
-//Ball four = {BALL_DEFAULT_X-4*BALL_RADIUS, boundaryDOWN, BALL_RADIUS, 0, velY_INITIAL, BALL_COLOR, BALL_MASS};
-//Ball five = {BALL_DEFAULT_X+5*BALL_RADIUS, boundaryDOWN, BALL_RADIUS, velX_INITIAL, velY_INITIAL, BALL_COLOR, BALL_MASS};
-//std::vector<Ball> balls = {one,two,three,four,five};
-
-Ball down = {BALL_DEFAULT_X, boundaryDOWN/2, BALL_RADIUS, 0, velY_INITIAL, sf::Color::Red, BALL_MASS};
-Ball up = {BALL_DEFAULT_X, boundaryDOWN, BALL_RADIUS, 0, 0, BALL_COLOR, BALL_MASS};
+Ball down = {BALL_DEFAULT_X, boundaryDOWN/2, BALL_RADIUS, velX_INITIAL, velY_INITIAL, sf::Color::Red, BALL_MASS};
+Ball up = {BALL_DEFAULT_X, boundaryDOWN, BALL_RADIUS, velX_INITIAL, velY_INITIAL, BALL_COLOR, BALL_MASS};
 std::vector<Ball> balls = {up, down};
 
-//std::vector<Ball> balls = {};
 void addBalls(Ball& b){
     balls.push_back(b);
 }
@@ -31,16 +19,12 @@ void addBalls(Ball& b){
 void drawDynamic(sf::RenderWindow& window){
     drawBall(window);
 
-//     my functionalities
     for (Ball& i : balls){
         i.move();
         i.wallCollision();
         checkCollision(i);
     }
-    std::cout<<'\n';
-
-
-    window.clear();
+     window.clear();
 }
 
 void drawBall(sf::RenderWindow& window){
@@ -64,26 +48,40 @@ float afterCollisionVel2(float m1, float m2, float u1, float u2){
 }
 
 void checkCollision(Ball& b){
-    b.balls_collision = false;
 
-    for (Ball& other : balls){
-        if (b != other){
-            float dx = other.x - b.x;
-            float dy = other.y - b.y;
+        for (Ball& other : balls){
+            auto isOverlap = [b, other](float dx, float dy){
+                return dy*dy + dx*dx < (b.radius + other.radius)*(b.radius + other.radius);
+            };
 
-            if(abs(dx)< DETECTION_LENGTH and abs(dy) < DETECTION_LENGTH){
-//                std::cout<< "X: " << other.x << " Y: " << b.x << std::endl;
+            if (b != other){
+                float dx = other.x - b.x;
+                float dy = other.y - b.y;
 
-                if (dy*dy + dx*dx <= (b.radius + other.radius)*(b.radius + other.radius)){
-//                    std::cout << "COLLISION!!!"<<std::endl;
+                if(abs(dx)< DETECTION_LENGTH and abs(dy) < DETECTION_LENGTH){
+                    //                std::cout<< "X: " << other.x << " Y: " << b.x << std::endl;
 
-                    b.balls_collision = true;
-                    updateVelocity(b,other,dx,dy);
+                    if (isOverlap(dx,dy)) {
+                        //    std::cout << "COLLISION!!!"<<std::endl;
+                        float b_vel = sqrt(b.velY * b.velY + b.velX*b.velX);
+                        float other_vel = sqrt(other.velY * other.velY + other.velX*other.velX);
 
+                        do {
+                            b.x -= b.velX / b_vel * b.radius/100;
+                            b.y -= b.velY / b_vel * b.radius/100;
+                            other.x -= other.velX / other_vel * other_vel/100;
+                            other.y -= other.velY / other_vel * other_vel/100;
+
+                            dx = other.x - b.x;
+                            dy = other.y - b.y;
+                        } while (isOverlap(dx, dy));
+
+                        updateVelocity(b, other, dx, dy);
+                    }
                 }
             }
         }
-    }
+
 }
 
 void updateVelocity(Ball &b, Ball& other, float dx, float dy) {

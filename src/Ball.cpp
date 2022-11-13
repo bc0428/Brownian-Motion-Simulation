@@ -2,12 +2,9 @@
 // Created by Brian Cheng on 9/11/2022.
 //
 
-
 #include "Ball.h"
-#include "SFML/Graphics.hpp"
 #include "Constants.h"
 #include "iostream"
-#include "DynamicObjects.h"
 
 Ball::Ball(float x,float y,float radius,float velX,float velY, sf::Color ball_color, float mass){
      this->x = x;
@@ -19,27 +16,10 @@ Ball::Ball(float x,float y,float radius,float velX,float velY, sf::Color ball_co
      this->mass = mass;
 
 }
-bool Ball::resting(){
-    return(bottomWallCollision() or this->balls_collision) and abs(velY) < MIN_VELOCITY_UPDATE;
-}
+
 void Ball::move(){
-
-        if (!resting())
-        {
-            gravitation();
-        }
-
-
-// stop the ball when no sufficient horizontal movement
-    if (abs(velX) > 0.01){
-        x+= velX;
-    }else{
-        velX = 0;
-    }
-
-
-    std::cout << x <<" VelX: " << velX << ", VelY: " << velY << std::endl;
-//    std::cout <<"X: " << x << ", Y: " << y << std::endl;
+    y += velY;
+    x+=velX;
 }
 
 void Ball::wallCollision(){
@@ -78,21 +58,6 @@ bool Ball::upWallCollision() {
 bool Ball::bottomWallCollision() {
     return y >= boundaryDOWN;
 }
-
-
-void Ball::gravitation() {
-    //apply gravitation only when ball not at bottom and with sufficient velocity
-    if (!(y == boundaryDOWN and abs(velY) < BOUNCE_STOPPING_VELOCITY))
-    {
-        velY += GRAVITY;
-        y += velY;
-    }
-    else{
-        velY=0;
-    }
-
-}
-
 
 void Ball::frictionVertical() {
     velY > 0? velY -= FRICTION_COEFFICIENT: velY += FRICTION_COEFFICIENT;
