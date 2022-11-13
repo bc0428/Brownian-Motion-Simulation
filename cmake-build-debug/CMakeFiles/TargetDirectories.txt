@@ -1,3 +1,3 @@
-/Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug/CMakeFiles/Course_Scheduler.dir
+/Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug/CMakeFiles/Brownian_Motion_Simulation.dir
 /Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug/CMakeFiles/rebuild_cache.dir

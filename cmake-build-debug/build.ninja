@@ -38,58 +38,58 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target Course_Scheduler
+# Object build statements for EXECUTABLE target Brownian_Motion_Simulation
 
 
 #############################################
-# Order-only phony target for Course_Scheduler
+# Order-only phony target for Brownian_Motion_Simulation
 
-build cmake_object_order_depends_target_Course_Scheduler: phony || CMakeFiles/Course_Scheduler.dir
+build cmake_object_order_depends_target_Brownian_Motion_Simulation: phony || CMakeFiles/Brownian_Motion_Simulation.dir
 
-build CMakeFiles/Course_Scheduler.dir/src/main.cpp.o: CXX_COMPILER__Course_Scheduler_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/main.cpp || cmake_object_order_depends_target_Course_Scheduler
-  DEP_FILE = CMakeFiles/Course_Scheduler.dir/src/main.cpp.o.d
+build CMakeFiles/Brownian_Motion_Simulation.dir/src/main.cpp.o: CXX_COMPILER__Brownian_Motion_Simulation_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/main.cpp || cmake_object_order_depends_target_Brownian_Motion_Simulation
+  DEP_FILE = CMakeFiles/Brownian_Motion_Simulation.dir/src/main.cpp.o.d
   FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
   INCLUDES = -I/opt/homebrew/Cellar/sfml/2.5.1_2/include -isystem /opt/homebrew/include
-  OBJECT_DIR = CMakeFiles/Course_Scheduler.dir
-  OBJECT_FILE_DIR = CMakeFiles/Course_Scheduler.dir/src
+  OBJECT_DIR = CMakeFiles/Brownian_Motion_Simulation.dir
+  OBJECT_FILE_DIR = CMakeFiles/Brownian_Motion_Simulation.dir/src
 
-build CMakeFiles/Course_Scheduler.dir/src/DynamicObjects.cpp.o: CXX_COMPILER__Course_Scheduler_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/DynamicObjects.cpp || cmake_object_order_depends_target_Course_Scheduler
-  DEP_FILE = CMakeFiles/Course_Scheduler.dir/src/DynamicObjects.cpp.o.d
+build CMakeFiles/Brownian_Motion_Simulation.dir/src/DynamicObjects.cpp.o: CXX_COMPILER__Brownian_Motion_Simulation_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/DynamicObjects.cpp || cmake_object_order_depends_target_Brownian_Motion_Simulation
+  DEP_FILE = CMakeFiles/Brownian_Motion_Simulation.dir/src/DynamicObjects.cpp.o.d
   FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
   INCLUDES = -I/opt/homebrew/Cellar/sfml/2.5.1_2/include -isystem /opt/homebrew/include
-  OBJECT_DIR = CMakeFiles/Course_Scheduler.dir
-  OBJECT_FILE_DIR = CMakeFiles/Course_Scheduler.dir/src
+  OBJECT_DIR = CMakeFiles/Brownian_Motion_Simulation.dir
+  OBJECT_FILE_DIR = CMakeFiles/Brownian_Motion_Simulation.dir/src
 
-build CMakeFiles/Course_Scheduler.dir/src/Ball.cpp.o: CXX_COMPILER__Course_Scheduler_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/Ball.cpp || cmake_object_order_depends_target_Course_Scheduler
-  DEP_FILE = CMakeFiles/Course_Scheduler.dir/src/Ball.cpp.o.d
+build CMakeFiles/Brownian_Motion_Simulation.dir/src/Ball.cpp.o: CXX_COMPILER__Brownian_Motion_Simulation_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/Ball.cpp || cmake_object_order_depends_target_Brownian_Motion_Simulation
+  DEP_FILE = CMakeFiles/Brownian_Motion_Simulation.dir/src/Ball.cpp.o.d
   FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
   INCLUDES = -I/opt/homebrew/Cellar/sfml/2.5.1_2/include -isystem /opt/homebrew/include
-  OBJECT_DIR = CMakeFiles/Course_Scheduler.dir
-  OBJECT_FILE_DIR = CMakeFiles/Course_Scheduler.dir/src
+  OBJECT_DIR = CMakeFiles/Brownian_Motion_Simulation.dir
+  OBJECT_FILE_DIR = CMakeFiles/Brownian_Motion_Simulation.dir/src
 
-build CMakeFiles/Course_Scheduler.dir/src/StaticObjects.cpp.o: CXX_COMPILER__Course_Scheduler_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/StaticObjects.cpp || cmake_object_order_depends_target_Course_Scheduler
-  DEP_FILE = CMakeFiles/Course_Scheduler.dir/src/StaticObjects.cpp.o.d
+build CMakeFiles/Brownian_Motion_Simulation.dir/src/StaticObjects.cpp.o: CXX_COMPILER__Brownian_Motion_Simulation_Debug /Users/briancheng/CLionProjects/C++/SImulation/src/StaticObjects.cpp || cmake_object_order_depends_target_Brownian_Motion_Simulation
+  DEP_FILE = CMakeFiles/Brownian_Motion_Simulation.dir/src/StaticObjects.cpp.o.d
   FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
   INCLUDES = -I/opt/homebrew/Cellar/sfml/2.5.1_2/include -isystem /opt/homebrew/include
-  OBJECT_DIR = CMakeFiles/Course_Scheduler.dir
-  OBJECT_FILE_DIR = CMakeFiles/Course_Scheduler.dir/src
+  OBJECT_DIR = CMakeFiles/Brownian_Motion_Simulation.dir
+  OBJECT_FILE_DIR = CMakeFiles/Brownian_Motion_Simulation.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Course_Scheduler
+# Link build statements for EXECUTABLE target Brownian_Motion_Simulation
 
 
 #############################################
-# Link the executable Course_Scheduler
+# Link the executable Brownian_Motion_Simulation
 
-build Course_Scheduler: CXX_EXECUTABLE_LINKER__Course_Scheduler_Debug CMakeFiles/Course_Scheduler.dir/src/main.cpp.o CMakeFiles/Course_Scheduler.dir/src/DynamicObjects.cpp.o CMakeFiles/Course_Scheduler.dir/src/Ball.cpp.o CMakeFiles/Course_Scheduler.dir/src/StaticObjects.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-network.2.5.1.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib
+build Brownian_Motion_Simulation: CXX_EXECUTABLE_LINKER__Brownian_Motion_Simulation_Debug CMakeFiles/Brownian_Motion_Simulation.dir/src/main.cpp.o CMakeFiles/Brownian_Motion_Simulation.dir/src/DynamicObjects.cpp.o CMakeFiles/Brownian_Motion_Simulation.dir/src/Ball.cpp.o CMakeFiles/Brownian_Motion_Simulation.dir/src/StaticObjects.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-network.2.5.1.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib
   FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib  /opt/homebrew/lib/libsfml-audio.2.5.1.dylib  /opt/homebrew/lib/libsfml-network.2.5.1.dylib  /opt/homebrew/lib/libsfml-window.2.5.1.dylib  /opt/homebrew/lib/libsfml-system.2.5.1.dylib
-  OBJECT_DIR = CMakeFiles/Course_Scheduler.dir
+  OBJECT_DIR = CMakeFiles/Brownian_Motion_Simulation.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = Course_Scheduler
-  TARGET_PDB = Course_Scheduler.dbg
+  TARGET_FILE = Brownian_Motion_Simulation
+  TARGET_PDB = Brownian_Motion_Simulation.dbg
 
 
 #############################################
@@ -125,7 +125,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug
 
-build all: phony Course_Scheduler
+build all: phony Brownian_Motion_Simulation
 
 # =============================================================================
 # Built-in targets

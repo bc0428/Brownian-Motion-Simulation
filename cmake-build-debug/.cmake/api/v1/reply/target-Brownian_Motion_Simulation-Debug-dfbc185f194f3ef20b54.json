@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Course_Scheduler"
+			"path" : "Brownian_Motion_Simulation"
 		}
 	],
 	"backtrace" : 1,
@@ -74,7 +74,7 @@
 			]
 		}
 	],
-	"id" : "Course_Scheduler::@6890427a1f51a3e7e1df",
+	"id" : "Brownian_Motion_Simulation::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -119,8 +119,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "Course_Scheduler",
-	"nameOnDisk" : "Course_Scheduler",
+	"name" : "Brownian_Motion_Simulation",
+	"nameOnDisk" : "Brownian_Motion_Simulation",
 	"paths" : 
 	{
 		"build" : ".",

@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "Course_Scheduler::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Course_Scheduler-Debug-7922babcf91cebf2f080.json",
-					"name" : "Course_Scheduler",
+					"id" : "Brownian_Motion_Simulation::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Brownian_Motion_Simulation-Debug-dfbc185f194f3ef20b54.json",
+					"name" : "Brownian_Motion_Simulation",
 					"projectIndex" : 0
 				}
 			]
