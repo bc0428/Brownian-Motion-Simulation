@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug"
+			"value" : "/Users/briancheng/CLionProjects/C++/Brownian Motion Simulation/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -515,7 +515,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/briancheng/CLionProjects/C++/SImulation"
+			"value" : "/Users/briancheng/CLionProjects/C++/Brownian Motion Simulation"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -1078,40 +1078,224 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "Course_Scheduler_BINARY_DIR",
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenMP",
 			"properties" : 
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
+					"value" : "Details about finding OpenMP"
 				}
 			],
-			"type" : "STATIC",
-			"value" : "/Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug"
+			"type" : "INTERNAL",
+			"value" : "[TRUE][TRUE][c ][v5.0()]"
 		},
 		{
-			"name" : "Course_Scheduler_IS_TOP_LEVEL",
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_C",
 			"properties" : 
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
+					"value" : "Details about finding OpenMP_C"
 				}
 			],
-			"type" : "STATIC",
-			"value" : "ON"
+			"type" : "INTERNAL",
+			"value" : "[-Xclang -fopenmp][/usr/local/lib/libomp.dylib][v5.0()]"
 		},
 		{
-			"name" : "Course_Scheduler_SOURCE_DIR",
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_CXX",
 			"properties" : 
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
+					"value" : "Details about finding OpenMP_CXX"
 				}
 			],
-			"type" : "STATIC",
-			"value" : "/Users/briancheng/CLionProjects/C++/SImulation"
+			"type" : "INTERNAL",
+			"value" : "[-Xclang -fopenmp][/usr/local/lib/libomp.dylib][v5.0()]"
+		},
+		{
+			"name" : "OpenMP_COMPILE_RESULT_CXX_Xclang fopenmp",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Result of TRY_COMPILE"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
+		},
+		{
+			"name" : "OpenMP_COMPILE_RESULT_C_Xclang fopenmp",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Result of TRY_COMPILE"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
+		},
+		{
+			"name" : "OpenMP_CXX_FLAGS",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "CXX compiler flags for OpenMP parallelization"
+				}
+			],
+			"type" : "STRING",
+			"value" : "-Xclang -fopenmp"
+		},
+		{
+			"name" : "OpenMP_CXX_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/local/include"
+		},
+		{
+			"name" : "OpenMP_CXX_LIB_NAMES",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "CXX compiler libraries for OpenMP parallelization"
+				}
+			],
+			"type" : "STRING",
+			"value" : "libomp"
+		},
+		{
+			"name" : "OpenMP_CXX_SPEC_DATE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "CXX compiler's OpenMP specification date"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "201811"
+		},
+		{
+			"name" : "OpenMP_C_FLAGS",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "C compiler flags for OpenMP parallelization"
+				}
+			],
+			"type" : "STRING",
+			"value" : "-Xclang -fopenmp"
+		},
+		{
+			"name" : "OpenMP_C_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/local/include"
+		},
+		{
+			"name" : "OpenMP_C_LIB_NAMES",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "C compiler libraries for OpenMP parallelization"
+				}
+			],
+			"type" : "STRING",
+			"value" : "libomp"
+		},
+		{
+			"name" : "OpenMP_C_SPEC_DATE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "C compiler's OpenMP specification date"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "201811"
+		},
+		{
+			"name" : "OpenMP_SPECTEST_CXX_",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Result of TRY_COMPILE"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
+		},
+		{
+			"name" : "OpenMP_SPECTEST_C_",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Result of TRY_COMPILE"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
+		},
+		{
+			"name" : "OpenMP_libomp_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/local/lib/libomp.dylib"
 		},
 		{
 			"name" : "SFML_DIR",
@@ -1147,7 +1331,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug"
+			"value" : "/Users/briancheng/CLionProjects/C++/Brownian Motion Simulation/cmake-build-debug"
 		},
 		{
 			"name" : "Simulation_IS_TOP_LEVEL",
@@ -1171,7 +1355,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/briancheng/CLionProjects/C++/SImulation"
+			"value" : "/Users/briancheng/CLionProjects/C++/Brownian Motion Simulation"
 		}
 	],
 	"kind" : "cache",

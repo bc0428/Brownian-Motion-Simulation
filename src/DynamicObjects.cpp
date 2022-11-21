@@ -6,6 +6,8 @@
 #include "SFML/Graphics.hpp"
 #include "Ball.h"
 #include "Constants.h"
+#include "omp.h"
+#include "iostream"
 
 
 Ball down = {BALL_DEFAULT_X, boundaryDOWN/2, BALL_RADIUS, velX_INITIAL, velY_INITIAL, sf::Color::Red, BALL_MASS};
@@ -19,24 +21,36 @@ void addBalls(Ball& b){
 void drawDynamic(sf::RenderWindow& window){
     drawBall(window);
 
-    for (Ball& i : balls){
-        i.move();
-        i.wallCollision();
-        checkCollision(i);
+    #pragma omp parallel
+    {
+        #pragma omp for
+        {
+            for (Ball &i: balls) {
+            i.move();
+            i.wallCollision();
+            }
+        }
     }
+
+        for (Ball& i : balls)
+        {
+            checkCollision(i);
+        }
+
      window.clear();
 }
 
 void drawBall(sf::RenderWindow& window){
 
-    for (Ball a : balls){
-    sf::CircleShape drawableBall;
-    drawableBall.setRadius(a.radius);
-    drawableBall.setOrigin(a.radius, a.radius);
-    drawableBall.setPosition(a.x, a.y);
-    drawableBall.setFillColor(a.ball_color);
-    window.draw(drawableBall);
-    }
+        for (Ball& a : balls){
+        sf::CircleShape drawableBall;
+        drawableBall.setRadius(a.radius);
+        drawableBall.setOrigin(a.radius, a.radius);
+        drawableBall.setPosition(a.x, a.y);
+        drawableBall.setFillColor(a.ball_color);
+        window.draw(drawableBall);
+        }
+
 
     window.display();
 }
@@ -81,7 +95,6 @@ void checkCollision(Ball& b){
                 }
             }
         }
-
 }
 
 void updateVelocity(Ball &b, Ball& other, float dx, float dy) {

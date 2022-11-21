@@ -1,7 +1,7 @@
 #include "DynamicObjects.h"
 #include "Constants.h"
 #include "StaticObjects.h"
-
+#include "omp.h"
 
 int main()
 {
@@ -38,7 +38,6 @@ int main()
 
             }
         }
-
         drawStatic(window);
         drawDynamic(window);
     }

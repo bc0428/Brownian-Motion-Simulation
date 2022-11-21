@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Brownian_Motion_Simulation::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Brownian_Motion_Simulation-Debug-dfbc185f194f3ef20b54.json",
+					"jsonFile" : "target-Brownian_Motion_Simulation-Debug-009dcdc11d35bdf58fa8.json",
 					"name" : "Brownian_Motion_Simulation",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/briancheng/CLionProjects/C++/SImulation/cmake-build-debug",
-		"source" : "/Users/briancheng/CLionProjects/C++/SImulation"
+		"build" : "/Users/briancheng/CLionProjects/C++/Brownian Motion Simulation/cmake-build-debug",
+		"source" : "/Users/briancheng/CLionProjects/C++/Brownian Motion Simulation"
 	},
 	"version" : 
 	{
